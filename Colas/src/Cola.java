@@ -45,7 +45,7 @@ public class Cola {
 	// nuevos metodos 
 
 	public void voltearCola() {
-		if (esVacia()!=false) {
+		if (esVacia()==false) {
 			int temp = primero();
 			desencolar();
 			voltearCola();
