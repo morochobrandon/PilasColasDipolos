@@ -1,5 +1,5 @@
 public class Cola {
-	
+
 	private class Nodo{
 		int dato;
 		Nodo prx;
@@ -41,4 +41,32 @@ public class Cola {
 		if(esVacia() != true)
 			tNodo = tNodo.prx;
 	}
+
+	// nuevos metodos 
+
+	public void voltearCola() {
+		if (esVacia()!=false) {
+			int temp = primero();
+			desencolar();
+			voltearCola();
+			encolar(temp);
+		}
+	}
+
+	public int tamanoCola() {
+    int tamano = 1;
+    tamano = tamanoColaRecursivo(tamano);
+    voltearCola();
+    return tamano;
+    }
+
+    private int tamanoColaRecursivo(int tamano) {
+    if (tNodo.prx != null) {
+        int temp = primero();
+        desencolar();
+        tamano = tamanoColaRecursivo(tamano + 1);
+        encolar(temp);
+    }
+    return tamano;
+    }
 }
